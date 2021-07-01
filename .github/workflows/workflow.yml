@@ -8,7 +8,7 @@ on:
 
 jobs:
   issue_job:
-    if: ${{ github.event == '' }} #verificar
+    if: ${{ github.event_name == 'issues' }}
     name: create issue job
     runs-on: ubuntu-latest
     steps:
@@ -22,7 +22,7 @@ jobs:
           python data/store_issue.py
 
   issue_comment_job:
-    if: ${{ github.event.comment && github.event.action == 'created' }} #verificar
+    if: ${{ github.event_name == 'issue_comment' }}
     needs: issue_job
     name: issue comment job
     runs-on: ubuntu-latest
