@@ -47,6 +47,7 @@ jobs:
 
       - name: run updater
         run: |
+          echo "${{ github.event_name }}"
           python data/updater.py
 
   commit-push-changes:
