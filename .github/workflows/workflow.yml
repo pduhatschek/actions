@@ -9,7 +9,7 @@ on:
 jobs:
   issue_job:
     if: ${{ github.event_name == 'issues' }}
-    name: create issue job
+    name: issue_job
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -24,7 +24,7 @@ jobs:
   issue_comment_job:
     if: ${{ github.event_name == 'issue_comment' }}
     needs: issue_job
-    name: issue comment job
+    name: issue_comment_job
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -39,7 +39,7 @@ jobs:
   updater:
     if: always()
     needs: [issue_job, issue_comment_job]
-    name: run updater
+    name: updater
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -50,10 +50,10 @@ jobs:
           echo "${{ github.event_name }}"
           python data/updater.py
 
-  commit-push-changes:
+  commit_push_changes:
     if: always()
     needs: updater
-    name: commit and push changes
+    name: commit_push_changes
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
