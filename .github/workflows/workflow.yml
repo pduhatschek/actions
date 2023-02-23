@@ -21,6 +21,12 @@ jobs:
         run: |
           python data/store_issue.py
 
+          git config --global user.name "${{ github.actor }}"
+          git config --global user.email "${{ github.actor }}@users.noreply.github.com"
+          git add -A
+          git commit -m "action issue"
+          git push
+
   issue_comment_job:
     if: ${{ github.event_name == 'issue_comment' }}
     name: issue_comment_job
@@ -35,33 +41,9 @@ jobs:
         run: |
           python data/store_issue_comment.py
 
-  updater:
-    if: always()
-    needs: [issue_job, issue_comment_job]
-    name: updater
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2.3.2
-
-      - name: run updater
-        run: |
-          echo "${{ github.event_name }}"
-          python data/updater.py
-
-  commit_push_changes:
-    if: always()
-    needs: updater
-    name: commit_push_changes
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2.3.2
-
-      - name: Commit and push changes
-        run: |
           git config --global user.name "${{ github.actor }}"
           git config --global user.email "${{ github.actor }}@users.noreply.github.com"
           git add -A
           git commit -m "action issue"
           git push
+
