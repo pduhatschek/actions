@@ -15,7 +15,7 @@ request.onload = function () {
                       <div class="col mr-2">
                         <div class="text-xs font-weight-bold text-info text-uppercase mb-1">
                           ${users['users'][u]['login']}</div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800">${users['users'][u]['issue_comment']}</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">${users['users'][u]['event']['issue_comment']}</div>
                       </div>
                       <div class="col-auto">
                         <img class="img-profile rounded-circle"
