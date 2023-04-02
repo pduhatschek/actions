@@ -22,39 +22,18 @@ on:
     types: [created]
 
 jobs:
-  issue_job:
-    if: ${{ github.event_name == 'issues' }}
-    name: issue_job
+  store_event:
+    name: store_event
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2.3.2
 
-      - name: run store issue
+      - name: run store event
         env:
           GITHUB_CONTEXT: ${{ toJson(github.event) }}
         run: |
-          python data/store_issue.py
-
-          git config --global user.name "${{ github.actor }}"
-          git config --global user.email "${{ github.actor }}@users.noreply.github.com"
-          git add -A
-          git commit -m "action issue"
-          git push
-
-  issue_comment_job:
-    if: ${{ github.event_name == 'issue_comment' }}
-    name: issue_comment_job
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2.3.2
-
-      - name: run store issue comment
-        env:
-          GITHUB_CONTEXT: ${{ toJson(github.event) }}
-        run: |
-          python data/store_issue_comment.py
+          python data/store_event.py
 
           git config --global user.name "${{ github.actor }}"
           git config --global user.email "${{ github.actor }}@users.noreply.github.com"
@@ -64,7 +43,7 @@ jobs:
 
   updater:
     if: always()
-    needs: [issue_job, issue_comment_job]
+    needs: [store_event]
     name: updater
     runs-on: ubuntu-latest
     steps:

@@ -1,47 +1,41 @@
-# -*- coding: utf-8 -*-
-
 import os
 import json
 
-def update_issue(user):
-    with open('data/issue.json') as json_file:
+def update_user(user, event_type):
+    with open(f'data/{event_type}.json') as json_file:
         data = json.load(json_file)
-        temp = data['issue']
-        user['events']['issue'] = 0
-        for issue in temp:
-            if user['id'] == issue['sender']['id']:
-                user['events']['issue'] += 1
-    return user
+        temp = data[event_type]
+        user['events'][event_type] = 0
+        for event in temp:
+            if user['id'] == event['sender']['id']:
+                user['events'][event_type] += 1
+        return user
 
-def update_issue_comment(user):
-    with open('data/issue_comment.json') as json_file:
-        data = json.load(json_file)
-        temp = data['issue_comment']
-        user['events']['issue_comment'] = 0
-        for issue_comment in temp:
-            if user['id'] == issue_comment['sender']['id']:
-                user['events']['issue_comment'] += 1
-    return user
-
-with open('data/users.json') as json_users:
-    users = json.load(json_users)
-    #exist_user = False
-
-    for u in users['users']:
-        update_issue(u)
-        update_issue_comment(u)
+def update_users():
+    with open('data/users.json') as json_users:
+        users = json.load(json_users)
+        for event_type in ['issue', 'issue_comment', 'pull_request', 'pull_request_review', 'pull_request_review_comment', 'push', 'fork', 'gollum', 'issue_comment', 'discussion', 'discussion_comment']:
+            with open(f'data/{event_type}.json') as json_file:
+                data = json.load(json_file)
+                for event in data[event_type]:
+                    user_exists = False
+                    for user in users['users']:
+                        if user['id'] == event['sender']['id']:
+                            user_exists = True
+                            update_user(user, event_type)
+                            break
+                    if not user_exists:
+                        new_user = {
+                            "id": event['sender']['id'],
+                            "login": event['sender']['login'],
+                            "avatar_url": event['sender']['avatar_url'],
+                            "html_url": event['sender']['html_url'],
+                            "events": {
+                                event_type: 1
+                            }
+                        }
+                        users['users'].append(new_user)
         with open('data/users.json', 'w') as js:
             json.dump(users, js, indent=4)
-        break
 
-#    if(exist_user == False):
-#        new_user = {
-#            "id": event['sender']['id'],
-#            "login": event['sender']['login'],
-#            "avatar_url": event['sender']['avatar_url'],
-#            "html_url": event['sender']['html_url'],
-#            "coins": 1
-#        }
-#        users['users'].append(new_user)
-#        with open('users.json', 'w') as js:
-#            json.dump(users, js, indent=4)
+update_users()
