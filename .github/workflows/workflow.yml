@@ -32,6 +32,7 @@ jobs:
       - name: run store event
         env:
           GITHUB_CONTEXT: ${{ toJson(github.event) }}
+          GITHUB_EVENT_NAME: ${{ github.event_name }}
         run: |
           python data/store_event.py
 

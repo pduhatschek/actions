@@ -15,7 +15,7 @@ def store_event():
     github_context = json.loads(os.environ['GITHUB_CONTEXT'])
 
     # Obtém o tipo de evento a partir do nome do evento
-    event_name = github_context['event_name']
+    event_name = os.environ['GITHUB_EVENT_NAME']
 
     # Verifica se o tipo de evento é válido
     valid_types = [
