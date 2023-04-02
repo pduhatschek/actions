@@ -23,6 +23,7 @@ on:
 
 jobs:
   build:
+    name: build
     runs-on: ubuntu-latest
     steps:
     - name: Instalar dependências
@@ -32,6 +33,8 @@ jobs:
       shell: bash
 
   store_event:
+    if: always()
+    needs: [build]
     name: store_event
     runs-on: ubuntu-latest
     steps:
