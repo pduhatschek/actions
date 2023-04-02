@@ -2,8 +2,23 @@ name: CI
 
 on:
   issues:
-    types: [opened]
+    types: [opened, assigned]
+  pull_request:
+    types: [opened, assigned]
+  pull_request_review:
+    types: [submitted]
+  pull_request_review_comment:
+    types: [created]
+  push:
+    branches:
+      - main
+  fork:
+  gollum:
   issue_comment:
+    types: [created]
+  discussion:
+    types: [created]
+  discussion_comment:
     types: [created]
 
 jobs:
