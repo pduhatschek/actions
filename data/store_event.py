@@ -2,7 +2,6 @@
 
 import os
 import json
-from github import context
 
 def store_event():
     """
@@ -12,8 +11,11 @@ def store_event():
     None
     """
 
+    # Obtém o contexto do GitHub
+    github_context = json.loads(os.environ['GITHUB_CONTEXT'])
+
     # Obtém o tipo de evento a partir do nome do evento
-    event_name = os.environ['GITHUB_EVENT_NAME']
+    event_name = github_context['event_name']
 
     # Verifica se o tipo de evento é válido
     valid_types = [
@@ -29,7 +31,7 @@ def store_event():
         data = json.load(json_file)
 
     # Adiciona o evento à lista de eventos do arquivo
-    data[event_name].append(github.context.payload)
+    data[event_name].append(github_context['payload'])
 
     # Salva as alterações no arquivo JSON
     with open(filename, 'w') as f:
