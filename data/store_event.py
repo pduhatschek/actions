@@ -2,6 +2,7 @@
 
 import os
 import json
+from github import context
 
 def store_event():
     """
