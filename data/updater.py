@@ -14,7 +14,7 @@ def update_user(user, event_type):
 def update_users():
     with open('data/users.json') as json_users:
         users = json.load(json_users)
-        for event_type in ['issue', 'issue_comment', 'pull_request', 'pull_request_review', 'pull_request_review_comment', 'push', 'fork', 'gollum', 'issue_comment', 'discussion', 'discussion_comment']:
+        for event_type in ['issues', 'issue_comment', 'pull_request', 'pull_request_review', 'pull_request_review_comment', 'push', 'fork', 'gollum', 'discussion', 'discussion_comment']:
             with open(f'data/{event_type}.json') as json_file:
                 data = json.load(json_file)
                 for event in data[event_type]:
