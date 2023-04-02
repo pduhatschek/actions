@@ -31,7 +31,7 @@ def store_event():
         data = json.load(json_file)
 
     # Adiciona o evento à lista de eventos do arquivo
-    data[event_name].append(github_context)
+    data[github_context["action"]].append(github_context)
 
     # Salva as alterações no arquivo JSON
     with open(filename, 'w') as f:
