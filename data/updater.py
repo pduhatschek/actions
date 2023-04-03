@@ -2,14 +2,30 @@ import os
 import json
 
 def update_user(user, event_name, event_action):
-    with open(f'data/{event_name}.json') as json_file:
-        data = json.load(json_file)
-        temp = data[event_name][event_action]
+    data_file_path = f'data/{event_name}.json'
+    if os.path.isfile(data_file_path):
+        with open(data_file_path) as json_file:
+            data = json.load(json_file)
+    else:
+        data = {}
+
+    if 'events' not in user:
+        user['events'] = {}
+
+    if event_name not in user['events']:
+        user['events'][event_name] = {}
+
+    if event_action not in user['events'][event_name]:
         user['events'][event_name][event_action] = 0
-        for event in temp:
-            if user['id'] == event['sender']['id']:
-                user['events'][event_name][event_action] += 1
-        return user
+
+    temp = data.get(event_name, {}).get(event_action, [])
+
+    user['events'][event_name][event_action] = 0
+    for event in temp:
+        if user['id'] == event['sender']['id']:
+            user['events'][event_name][event_action] += 1
+
+    return user
 
 def update_users():
     with open('data/users.json') as json_users:
