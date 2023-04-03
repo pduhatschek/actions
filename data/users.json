@@ -8,6 +8,9 @@
             "events": {
                 "issue_comment": {
                     "created": 4
+                },
+                "issues": {
+                    "assigned": 1
                 }
             }
         },
