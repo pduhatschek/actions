@@ -10,7 +10,8 @@
                     "created": 4
                 },
                 "issues": {
-                    "assigned": 2
+                    "assigned": 2,
+                    "opened": 1
                 },
                 "discussion": {
                     "created": 1
