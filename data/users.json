@@ -14,6 +14,9 @@
                 },
                 "discussion": {
                     "created": 1
+                },
+                "discussion_comment": {
+                    "created": 1
                 }
             }
         },
