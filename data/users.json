@@ -5,7 +5,11 @@
             "id": 19801532,
             "html_url": "https://github.com/allisonsampaio",
             "avatar_url": "https://avatars.githubusercontent.com/u/19801532?v=4",
-            "events": {}
+            "events": {
+                "issue_comment": {
+                    "created": 0
+                }
+            }
         },
         {
             "login": "magsilva",
