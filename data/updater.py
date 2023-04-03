@@ -18,8 +18,8 @@ def update_user(user, event_name, event_action):
     if event_action not in user['events'][event_name]:
         user['events'][event_name][event_action] = 0
 
-    temp = data.get(event_name, {}).get(event_action, [])
-
+    temp = data[event_action]
+    
     user['events'][event_name][event_action] = 0
     for event in temp:
         if user['id'] == event['sender']['id']:
