@@ -1,3 +1,15 @@
 {
-    "users": []
+    "users": [
+        {
+            "id": 19801532,
+            "login": "allisonsampaio",
+            "avatar_url": "https://avatars.githubusercontent.com/u/19801532?v=4",
+            "html_url": "https://github.com/allisonsampaio",
+            "events": {
+                "issues": {
+                    "opened": 1
+                }
+            }
+        }
+    ]
 }
