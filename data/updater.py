@@ -28,7 +28,7 @@ def update_user(user, event_name, event_action):
     return user
 
 def update_users():
-    with open('act-frontend/src/users.json') as json_users:
+    with open('data/users.json') as json_users:
         users = json.load(json_users)
 
         event_action = os.environ['GITHUB_EVENT_ACTION']
@@ -58,7 +58,7 @@ def update_users():
                     }
                     users['users'].append(new_user)
                     
-        with open('act-frontend/src/users.json', 'w') as js:
+        with open('data/users.json', 'w') as js:
             json.dump(users, js, indent=4)
 
 update_users()
