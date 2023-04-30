@@ -7,7 +7,73 @@
             "html_url": "https://github.com/allisonsampaio",
             "events": {
                 "issues": {
-                    "opened": 1
+                    "created": 1,
+                    "assigned": 2
+                },
+                "pull_request": {
+                    "opened": 1,
+                    "assigned": 1
+                }
+            }
+        },
+        {
+            "id": 5467389,
+            "login": "johndoe",
+            "avatar_url": "https://avatars.githubusercontent.com/u/5467389?v=4",
+            "html_url": "https://github.com/johndoe",
+            "events": {
+                "pull_request_review": {
+                    "submitted": 1
+                },
+                "push": {
+                    "count": 2,
+                    "latest_commit": "cafedeadbeef0123456789abcdef0123456789"
+                }
+            }
+        },
+        {
+            "id": 98765432,
+            "login": "janedoe",
+            "avatar_url": "https://avatars.githubusercontent.com/u/98765432?v=4",
+            "html_url": "https://github.com/janedoe",
+            "events": {
+                "fork": {
+                    "count": 1,
+                    "latest": "https://github.com/janedoe/myproject"
+                },
+                "gollum": {
+                    "count": 2,
+                    "latest": "https://github.com/janedoe/myproject/wiki/Getting-Started"
+                }
+            }
+        },
+        {
+            "id": 2367941,
+            "login": "alicebrown",
+            "avatar_url": "https://avatars.githubusercontent.com/u/2367941?v=4",
+            "html_url": "https://github.com/alicebrown",
+            "events": {
+                "issue_comment": {
+                    "created": 1
+                },
+                "discussion_comment": {
+                    "created": 2
+                }
+            }
+        },
+        {
+            "id": 87654321,
+            "login": "bobsmith",
+            "avatar_url": "https://avatars.githubusercontent.com/u/87654321?v=4",
+            "html_url": "https://github.com/bobsmith",
+            "events": {
+                "merge_group": {
+                    "count": 1,
+                    "latest_merge": "https://github.com/bobsmith/myproject/commit/ef07c42c2d53674cf7d1951dc43c95e31169b114"
+                },
+                "push": {
+                    "count": 1,
+                    "latest_commit": "1f41389bd39ce7b9e06878f1297ec40aebf60c34"
                 }
             }
         }
