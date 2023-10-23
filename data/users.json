@@ -8,7 +8,7 @@
             "events": {
                 "issues": {
                     "created": 1,
-                    "assigned": 2,
+                    "assigned": 1,
                     "opened": 3
                 },
                 "pull_request": {
