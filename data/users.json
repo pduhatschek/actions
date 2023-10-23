@@ -13,6 +13,9 @@
                 "pull_request": {
                     "opened": 1,
                     "assigned": 1
+                },
+                "issue_comment": {
+                    "created": 1
                 }
             }
         },
