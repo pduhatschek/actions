@@ -1,0 +1,100 @@
+[
+    {
+        "title"         : "Ajudante I",
+        "category"      : "cooperation",
+        "description"   : "1+ issue comments",
+        "google_icon"   : "favorite",
+        "condition"     : "lambda u: len(u.issue_comments) >= 1",
+        "shiny"         : false
+    },
+
+    {
+        "title"         : "Ajudante II",
+        "category"      : "cooperation",
+        "description"   : "5+ issue comments",
+        "google_icon"   : "heart_plus",
+        "condition"     : "lambda u: len(u.issue_comments) >= 5",
+        "shiny"         : false
+    },
+
+    {
+        "title"         : "Altruísmo",
+        "category"      : "cooperation",
+        "description"   : "15+ issue comments",
+        "google_icon"   : "diversity_2",
+        "condition"     : "lambda u: len(u.issue_comments) >= 5",
+        "shiny"         : true
+    },
+
+    {
+        "title"         : "Testador I",
+        "category"      : "communication",
+        "description"   : "1+ issue",
+        "google_icon"   : "emoji_nature",
+        "condition"     : "lambda u: len(u.issues) >= 1",
+        "shiny"         : false
+    },
+
+    {
+        "title"         : "Testador II",
+        "category"      : "communication",
+        "description"   : "5+ issues",
+        "google_icon"   : "bug_report",
+        "condition"     : "lambda u: len(u.issues) >= 5",
+        "shiny"         : false
+    },
+
+    {
+        "title"         : "Testador",
+        "category"      : "communication",
+        "description"   : "10+ issues",
+        "google_icon"   : "bug_report",
+        "condition"     : "lambda u: len(u.issues) >= 10",
+        "shiny"         : true
+    },
+
+    {
+        "title"         : "Professor Assistente",
+        "category"      : "communication",
+        "description"   : "5+ gollums",
+        "google_icon"   : "description",
+        "condition"     : "lambda u: u.gollums >= 5",
+        "shiny"         : false
+    },
+
+    {
+        "title"         : "Professor",
+        "category"      : "communication",
+        "description"   : "10+ gollums",
+        "google_icon"   : "school",
+        "condition"     : "lambda u: u.gollums >= 10",
+        "shiny"         : true
+    },
+
+    {
+        "title"         : "Programador Júnior",
+        "category"      : "logic",
+        "description"   : "5+ pushes",
+        "google_icon"   : "code",
+        "condition"     : "lambda u: u.pushes >= 5",
+        "shiny"         : false
+    },
+
+    {
+        "title"         : "Programador Pleno",
+        "category"      : "logic",
+        "description"   : "10+ pushes",
+        "google_icon"   : "code_block",
+        "condition"     : "lambda u: u.pushes >= 10",
+        "shiny"         : false
+    },
+
+    {
+        "title"         : "Programador Sênior",
+        "category"      : "logic",
+        "description"   : "20+ pushes",
+        "google_icon"   : "terminal",
+        "condition"     : "lambda u: u.pushes >= 20",
+        "shiny"         : true
+    }
+]
