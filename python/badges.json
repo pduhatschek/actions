@@ -4,7 +4,7 @@
         "category"      : "cooperation",
         "description"   : "Iniciando sua jornada como colaborador, você já está contribuindo com feedback e apoio em várias áreas. Continue assim!",
         "google_icon"   : "emoji_people",
-        "condition"     : "lambda u: any([len(getattr(u, attr)) >= 1 for attr in ['issue_comments', 'discussion_comments', 'pull_request_review', 'pull_request_review_comment', 'gollum']])",
+        "condition"     : "lambda u: any([len(getattr(u, attr)) >= 1 for attr in ['issue_comments', 'discussion_comments', 'pr_reviews', 'pr_review_comments', 'gollums']])",
         "shiny"         : false
     },
     {
@@ -12,7 +12,7 @@
         "category"      : "cooperation",
         "description"   : "Você se tornou um parceiro valioso no projeto, colaborando em várias tarefas e fornecendo suporte constante. Continue aprimorando suas habilidades!",
         "google_icon"   : "partner_exchange",
-        "condition"     : "lambda u: any([len(getattr(u, attr)) >= 3 for attr in ['issue_comments', 'discussion_comments', 'pull_request_review', 'pull_request_review_comment', 'gollum']])",
+        "condition"     : "lambda u: any([len(getattr(u, attr)) >= 3 for attr in ['issue_comments', 'discussion_comments', 'pr_reviews', 'pr_review_comments', 'gollums']])",
         "shiny"         : false
     },
     {
@@ -20,7 +20,7 @@
         "category"      : "cooperation",
         "description"   : "Você se destacou como líder da equipe, fornecendo orientação e liderança para projetos importantes. Sua contribuição é essencial para o sucesso da equipe.",
         "google_icon"   : "social_leaderboard",
-        "condition"     : "lambda u: any([len(getattr(u, attr)) >= 8 for attr in ['issue_comments', 'discussion_comments', 'pull_request_review', 'pull_request_review_comment', 'gollum']])",
+        "condition"     : "lambda u: any([len(getattr(u, attr)) >= 8 for attr in ['issue_comments', 'discussion_comments', 'pr_reviews', 'pr_review_comments', 'gollums']])",
         "shiny"         : true
     },
     {
@@ -28,7 +28,7 @@
         "category"      : "communication",
         "description"   : "Como um comunicador novato, você está começando a se destacar em discussões e contribuições. Continue aprimorando suas habilidades de comunicação!",
         "google_icon"   : "communication",
-        "condition"     : "lambda u: any([len(getattr(u, attr)) >= 1 for attr in ['gollum', 'discussion', 'issues']])",
+        "condition"     : "lambda u: any([len(getattr(u, attr)) >= 1 for attr in ['gollums', 'discussions', 'issues']])",
         "shiny"         : false
     },
     {
@@ -36,7 +36,7 @@
         "category"      : "communication",
         "description"   : "Com habilidades de comunicação sólidas, você se tornou um conversador experiente, contribuindo significativamente para discussões e mantendo conversas produtivas.",
         "google_icon"   : "groups",
-        "condition"     : "lambda u: any([len(getattr(u, attr)) >= 3 for attr in ['gollum', 'discussion', 'issues']])",
+        "condition"     : "lambda u: any([len(getattr(u, attr)) >= 3 for attr in ['gollums', 'discussions', 'issues']])",
         "shiny"         : false
     },
     {
@@ -44,7 +44,7 @@
         "category"      : "communication",
         "description"   : "Você se tornou um mestre na arte da comunicação técnica. Suas contribuições são essenciais para manter a clareza e eficácia na comunicação da equipe.",
         "google_icon"   : "record_voice_over",
-        "condition"     : "lambda u: any([len(getattr(u, attr)) >= 5 for attr in ['gollum', 'discussion', 'issues']])",
+        "condition"     : "lambda u: any([len(getattr(u, attr)) >= 5 for attr in ['gollums', 'discussions', 'issues']])",
         "shiny"         : true
     },
     {
@@ -52,7 +52,7 @@
         "category"      : "continuous_improvement",
         "description"   : "Como um buscador de melhorias, você está constantemente em busca de maneiras de aprimorar o projeto. Continue identificando oportunidades de melhoria!",
         "google_icon"   : "edit_note",
-        "condition"     : "lambda u: any([len(getattr(u, attr)) >= 3 for attr in ['issues', 'pull_request', 'pull_request_review', 'pull_request_review_comment', 'push']])",
+        "condition"     : "lambda u: any([len(getattr(u, attr)) >= 3 for attr in ['issues', 'pull_requests', 'pr_reviews', 'pr_review_comments', 'pushes']])",
         "shiny"         : false
     },
     {
@@ -60,7 +60,7 @@
         "category"      : "continuous_improvement",
         "description"   : "Você se destacou como um agente ativo de melhoria contínua, contribuindo para tornar o projeto ainda melhor. Seu esforço faz a diferença!",
         "google_icon"   : "edit_square",
-        "condition"     : "lambda u: any([len(getattr(u, attr)) >= 5 for attr in ['issues', 'pull_request', 'pull_request_review', 'pull_request_review_comment', 'push']])",
+        "condition"     : "lambda u: any([len(getattr(u, attr)) >= 5 for attr in ['issues', 'pull_requests', 'pr_reviews', 'pr_review_comments', 'pushes']])",
         "shiny"         : false
     },
     {
@@ -68,7 +68,7 @@
         "category"      : "continuous_improvement",
         "description"   : "Como mestre da evolução, você lidera a busca constante por aprimoramento e inovação. Suas contribuições são fundamentais para o crescimento contínuo do projeto.",
         "google_icon"   : "editor_choice",
-        "condition"     : "lambda u: any([len(getattr(u, attr)) >= 8 for attr in ['issues', 'pull_request', 'pull_request_review', 'pull_request_review_comment', 'push']])",
+        "condition"     : "lambda u: any([len(getattr(u, attr)) >= 8 for attr in ['issues', 'pull_requests', 'pr_reviews', 'pr_review_comments', 'pushes']])",
         "shiny"         : true
     },
     {
@@ -76,7 +76,7 @@
         "category"      : "logic",
         "description"   : "Como um desbravador lógico, você está começando a desvendar os desafios lógicos do projeto. Continue aprimorando suas habilidades analíticas!",
         "google_icon"   : "alt_route",
-        "condition"     : "lambda u: any([len(getattr(u, attr)) >= 2 for attr in ['pull_request', 'pull_request_review', 'push']])",
+        "condition"     : "lambda u: any([len(getattr(u, attr)) >= 2 for attr in ['pull_requests', 'pr_reviews', 'pushes']])",
         "shiny"         : false
     },
     {
@@ -84,7 +84,7 @@
         "category"      : "logic",
         "description"   : "Você se destacou como um solucionador estratégico, oferecendo abordagens lógicas e eficazes para resolver problemas técnicos.",
         "google_icon"   : "transfer_within_a_station",
-        "condition"     : "lambda u: any([len(getattr(u, attr)) >= 5 for attr in ['pull_request', 'pull_request_review', 'push']])",
+        "condition"     : "lambda u: any([len(getattr(u, attr)) >= 5 for attr in ['pull_requests', 'pr_reviews', 'pushes']])",
         "shiny"         : false
     },
     {
@@ -92,7 +92,7 @@
         "category"      : "logic",
         "description"   : "Como mestre do enigma, você domina os desafios lógicos do projeto, fornecendo soluções brilhantes e inovadoras.",
         "google_icon"   : "neurology",
-        "condition"     : "lambda u: any([len(getattr(u, attr)) >= 8 for attr in ['pull_request', 'pull_request_review', 'push']])",
+        "condition"     : "lambda u: any([len(getattr(u, attr)) >= 8 for attr in ['pull_requests', 'pr_reviews', 'pushes']])",
         "shiny"         : true
     },
     {
@@ -100,7 +100,7 @@
         "category"      : "creativity",
         "description"   : "Como uma mente inventiva, você está começando a explorar novas maneiras de abordar desafios técnicos. Continue explorando sua criatividade!",
         "google_icon"   : "highlight",
-        "condition"     : "lambda u: any([len(getattr(u, attr)) >= 2 for attr in ['pull_request', 'push', 'gollum', 'discussion']])",
+        "condition"     : "lambda u: any([len(getattr(u, attr)) >= 2 for attr in ['pull_requests', 'pushes', 'gollums', 'discussions']])",
         "shiny"         : false
     },
     {
@@ -108,7 +108,7 @@
         "category"      : "creativity",
         "description"   : "Você se destacou como um gênio da inovação, trazendo novas ideias e abordagens criativas para o projeto. Sua criatividade é uma vantagem.",
         "google_icon"   : "emoji_objects",
-        "condition"     : "lambda u: any([len(getattr(u, attr)) >= 5 for attr in ['pull_request', 'push', 'gollum', 'discussion']])",
+        "condition"     : "lambda u: any([len(getattr(u, attr)) >= 5 for attr in ['pull_requests', 'pushes', 'gollums', 'discussions']])",
         "shiny"         : false
     },
     {
@@ -116,7 +116,7 @@
         "category"      : "creativity",
         "description"   : "Como mestre da imaginação, você lidera a inovação no projeto, contribuindo com soluções criativas e impactantes. Sua visão é inestimável.",
         "google_icon"   : "stars",
-        "condition"     : "lambda u: any([len(getattr(u, attr)) >= 8 for attr in ['pull_request', 'push', 'gollum', 'discussion']])",
+        "condition"     : "lambda u: any([len(getattr(u, attr)) >= 8 for attr in ['pull_requests', 'pushes', 'gollums', 'discussions']])",
         "shiny"         : true
     }
 ]
