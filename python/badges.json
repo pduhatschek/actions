@@ -4,7 +4,7 @@
         "category"      : "cooperation",
         "description"   : "Iniciando sua jornada como colaborador, você já está contribuindo com feedback e apoio em várias áreas. Continue assim!",
         "google_icon"   : "emoji_people",
-        "condition"     : "lambda u: any([len(getattr(u, attr)) >= 1 for attr in ['issue_comments', 'discussion_comment', 'pull_request_review', 'pull_request_review_comment', 'gollum']])",
+        "condition"     : "lambda u: any([len(getattr(u, attr)) >= 1 for attr in ['issue_comments', 'discussion_comments', 'pull_request_review', 'pull_request_review_comment', 'gollum']])",
         "shiny"         : false
     },
     {
@@ -12,7 +12,7 @@
         "category"      : "cooperation",
         "description"   : "Você se tornou um parceiro valioso no projeto, colaborando em várias tarefas e fornecendo suporte constante. Continue aprimorando suas habilidades!",
         "google_icon"   : "partner_exchange",
-        "condition"     : "lambda u: any([len(getattr(u, attr)) >= 3 for attr in ['issue_comments', 'discussion_comment', 'pull_request_review', 'pull_request_review_comment', 'gollum']])",
+        "condition"     : "lambda u: any([len(getattr(u, attr)) >= 3 for attr in ['issue_comments', 'discussion_comments', 'pull_request_review', 'pull_request_review_comment', 'gollum']])",
         "shiny"         : false
     },
     {
@@ -20,7 +20,7 @@
         "category"      : "cooperation",
         "description"   : "Você se destacou como líder da equipe, fornecendo orientação e liderança para projetos importantes. Sua contribuição é essencial para o sucesso da equipe.",
         "google_icon"   : "social_leaderboard",
-        "condition"     : "lambda u: any([len(getattr(u, attr)) >= 8 for attr in ['issue_comments', 'discussion_comment', 'pull_request_review', 'pull_request_review_comment', 'gollum']])",
+        "condition"     : "lambda u: any([len(getattr(u, attr)) >= 8 for attr in ['issue_comments', 'discussion_comments', 'pull_request_review', 'pull_request_review_comment', 'gollum']])",
         "shiny"         : true
     },
     {
