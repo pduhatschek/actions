@@ -26,7 +26,10 @@ def update_user(user: User):
 
 
 def add_action(user: User, data: dict, action_type: str):
-    user_actions = getattr(user, f"{action_type}s")
+    # Adiciona "es" ao final para "add_push" e "s" para outros casos
+    user_actions_attr = f"{action_type}es" if action_type == "add_push" else f"{action_type}s"
+
+    user_actions = getattr(user, user_actions_attr)
     user_actions.append(getattr(ActionTypes, action_type.capitalize())(data[action_type]))
 
     action_info = get_action_info(action_type)
