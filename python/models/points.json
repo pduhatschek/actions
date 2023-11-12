@@ -1,0 +1,74 @@
+{
+    "add_issue": {
+      "competencies": ["communication", "continuous_improvement"],
+      "points": {
+        "communication_xp": 2,
+        "continuous_improvement_xp": 1
+      }
+    },
+    "add_issue_comment": {
+      "competencies": ["communication", "cooperation"],
+      "points": {
+        "communication_xp": 1,
+        "cooperation_xp": 1
+      }
+    },
+    "add_pull_request": {
+      "competencies": ["continuous_improvement", "logic", "creativity"],
+      "points": {
+        "continuous_improvement_xp": 5,
+        "logic_xp": 5,
+        "creativity_xp": 5
+      }
+    },
+    "add_pull_request_review": {
+      "competencies": ["cooperation", "continuous_improvement", "logic"],
+      "points": {
+        "cooperation_xp": 5,
+        "continuous_improvement_xp": 5,
+        "logic_xp": 5
+      }
+    },
+    "add_pull_request_review_comment": {
+      "competencies": ["cooperation", "continuous_improvement"],
+      "points": {
+        "cooperation_xp": 1,
+        "continuous_improvement_xp": 1
+      }
+    },
+    "add_discussion": {
+      "competencies": ["communication", "creativity"],
+      "points": {
+        "communication_xp": 2,
+        "creativity_xp": 2
+      }
+    },
+    "add_discussion_comment": {
+      "competencies": ["cooperation", "communication"],
+      "points": {
+        "cooperation_xp": 1,
+        "communication_xp": 1
+      }
+    },
+    "add_push": {
+      "competencies": ["continuous_improvement", "logic", "creativity"],
+      "points": {
+        "continuous_improvement_xp": 1,
+        "logic_xp": 1,
+        "creativity_xp": 1
+      }
+    },
+    "add_gollum": {
+      "competencies": ["cooperation", "communication", "creativity"],
+      "points": {
+        "cooperation_xp": 5,
+        "communication_xp": 1,
+        "creativity_xp": 2
+      }
+    },
+    "add_fork": {
+      "competencies": [],
+      "points": {}
+    }
+  }
+  
