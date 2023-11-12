@@ -5,82 +5,107 @@ import firebase_admin
 from firebase_admin import firestore
 from firebase_admin import credentials
 
-if os.path.exists('keys.json'):
+if (os.path.exists('keys.json')):
     cred = credentials.Certificate('keys.json')
 else:
     cred = credentials.Certificate(json.loads(os.environ['FS_KEY']))
 
 app = firebase_admin.initialize_app(cred)
-_db: firestore.firestore.Client = firestore.client()
+_db:firestore.firestore.Client = firestore.client()
 
-
-def get_action_info(action_type):
-    with open('points.json', 'r') as file:
-        data = json.load(file)
-        return data.get(action_type, {})
-
-
-def update_user(user: User):
+def update_user(user:User):
     ref = _db.document(f"users/{user.id}")
     ref.set(user.__dict__)
 
+def add_issue(user:User, data:dict):
+    user.issues.append(Issue(data["issue"]))
 
-def add_action(user: User, data: dict, action_type: str):
-    # Adiciona "es" ao final para "add_push" e "s" para outros casos
-    user_actions_attr = f"{action_type}es" if action_type == "add_push" else f"{action_type}s"
-
-    user_actions = getattr(user, user_actions_attr)
-    user_actions.append(getattr(ActionTypes, action_type.capitalize())(data[action_type]))
-
-    action_info = get_action_info(action_type)
-
-    # Atualiza as xp_bars com base nas informações do JSON
-    for competency in action_info.get("competencies", []):
-        xp_points = action_info.get("points", {}).get(competency, 0)
-        setattr(user, f"{competency}_xp", getattr(user, f"{competency}_xp") + xp_points)
+    # add xp to respective xp_bars
+    user.communication_xp += 2
+    user.continuous_improvement_xp += 1
 
     update_user(user)
 
 
-def add_issue(user: User, data: dict):
-    add_action(user, data, "add_issue")
+def add_issue_comment(user:User, data:dict):
+    user.issue_comments.append(IssueComment(data["comment"]))
 
+    # add xp to respective xp_bars
+    user.communication_xp += 1
+    user.cooperation_xp += 1
 
-def add_issue_comment(user: User, data: dict):
-    add_action(user, data, "add_issue_comment")
+    update_user(user)
 
+def add_pull_request(user:User, data:dict):
+    user.pull_requests.append(PullRequest(data["pull_request"]))
 
-def add_pull_request(user: User, data: dict):
-    add_action(user, data, "add_pull_request")
+    # add xp to respective xp_bars
+    user.continuous_improvement_xp += 5
+    user.logic_xp += 5
+    user.creativity_xp += 5
 
+    update_user(user)
 
-def add_pull_request_review(user: User, data: dict):
-    add_action(user, data, "add_pull_request_review")
+def add_pull_request_review(user:User, data:dict):
+    user.pr_reviews.append(PR_Review(data["review"]))
 
+    # add xp to respective xp_bars
+    user.cooperation_xp += 5
+    user.continuous_improvement_xp += 5
+    user.logic_xp += 5
 
-def add_pull_request_review_comment(user: User, data: dict):
-    add_action(user, data, "add_pull_request_review_comment")
+    update_user(user)
 
+def add_pull_request_review_comment(user:User, data:dict):
+    user.pr_review_comments.append(PR_ReviewComment(data["comment"]))
 
-def add_discussion(user: User, data: dict):
-    add_action(user, data, "add_discussion")
+    # add xp to respective xp_bars
+    user.cooperation_xp += 1
+    user.continuous_improvement_xp += 1
 
+    update_user(user)
 
-def add_discussion_comment(user: User, data: dict):
-    add_action(user, data, "add_discussion_comment")
+def add_discussion(user:User, data:dict):
+    user.discussions.append(Discussion(data["discussion"]))
 
+    # add xp to respective xp_bars
+    user.communication_xp += 2
+    user.creativity_xp += 2
 
-def add_push(user: User, *kwargs):
-    add_action(user, {}, "add_push")
+    update_user(user)
 
+def add_discussion_comment(user:User, data:dict):
+    user.discussion_comments.append(DiscussionComment(data["comment"]))
 
-def add_gollum(user: User, *kwargs):
-    add_action(user, {}, "add_gollum")
+    # add xp to respective xp_bars
+    user.cooperation_xp += 1
+    user.communication_xp += 1
 
+    update_user(user)
 
-def add_fork(user: User, *kwargs):
-    add_action(user, {}, "add_fork")
+def add_push(user:User, *kwargs):
+    user.pushes +=1
 
+    # add xp to respective xp_bars
+    user.continuous_improvement_xp += 1
+    user.logic_xp += 1
+    user.creativity_xp += 1
+
+    update_user(user)
+
+def add_gollum(user:User, *kwargs):
+    user.gollums += 1
+
+    # add xp to respective xp_bars
+    user.cooperation_xp += 5
+    user.communication_xp += 1
+    user.creativity_xp += 2
+
+    update_user(user)
+
+def add_fork(user:User, *kwargs):
+    user.forks += 1
+    update_user(user)
 
 def user_checkin(sender):
     user = _db.collection('users').document(str(sender["id"])).get()
