@@ -1,0 +1,43 @@
+{
+    "issue":{
+        "communication_xp":2,
+        "continuous_improvement_xp":1
+    },
+    "issue_comment":{
+        "communication_xp": 1,
+        "cooperation_xp": 1
+    },
+    "pull_request":{
+        "continuous_improvement_xp": 5,
+        "logic_xp": 5,
+        "creativity_xp": 5
+    },
+    "pull_request_review":{
+        "cooperation_xp": 5,
+        "continuous_improvement_xp": 5,
+        "logic_xp": 5
+    },
+
+    "pull_request_review_comment":{
+        "cooperation_xp": 1,
+        "continuous_improvement_xp": 1
+    },
+    "discussion":{
+        "communication_xp": 2,
+        "creativity_xp": 2
+    },
+    "discussion_comment":{
+        "cooperation_xp": 1,
+        "communication_xp": 1
+    },
+    "push":{
+        "continuous_improvement_xp": 1,
+        "logic_xp": 1,
+        "creativity_xp": 1
+    },
+    "gollum":{
+        "cooperation_xp": 5,
+        "communication_xp": 1,
+        "creativity_xp": 2
+    }
+}
