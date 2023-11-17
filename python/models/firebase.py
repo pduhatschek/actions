@@ -13,7 +13,7 @@ else:
 app = firebase_admin.initialize_app(cred)
 _db:firestore.firestore.Client = firestore.client()
 
-with open("xp.json", "r") as f:
+with open("./xp.json", "r") as f:
     xp_map = json.load(f)
 
 def update_user(user:User):
