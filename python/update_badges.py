@@ -7,7 +7,7 @@ def has_badge(user, badge):
     return badge["title"] in titles
 
 def update_badges(user:User):
-    with open("./badges.json", "r") as f:
+    with open("./python/badges.json", "r") as f:
         badge_data_list = json.load(f)
     
     for badge_data in badge_data_list:
