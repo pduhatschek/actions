@@ -118,5 +118,13 @@
         "google_icon"   : "stars",
         "condition"     : "lambda u: any([len(getattr(u, attr)) >= 8 if isinstance(getattr(u, attr), list) else False for attr in ['pull_requests', 'pushes', 'gollums', 'discussions']])",
         "shiny"         : true
+    },
+    {
+        "title"         : "test",
+        "category"      : "creativity",
+        "description"   : "test",
+        "google_icon"   : "stars",
+        "condition"     : "lambda u: any([len(getattr(u, attr)) >= 8 if isinstance(getattr(u, attr), list) else False for attr in ['pull_requests', 'pushes', 'gollums', 'discussions']])",
+        "shiny"         : true
     }
 ]
