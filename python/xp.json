@@ -12,6 +12,10 @@
         "logic_xp": 5,
         "creativity_xp": 5
     },
+    "merged_pull_request":{
+        "continuous_improvement_xp": 50,
+        "logic_xp": 50
+    },
     "pull_request_review":{
         "cooperation_xp": 5,
         "continuous_improvement_xp": 5,
