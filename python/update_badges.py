@@ -16,4 +16,3 @@ def update_badges(user:User):
             if not has_badge(user, badge_data):
                 user.badges.append(Badge(badge_data))
                 update_user(user)
-
