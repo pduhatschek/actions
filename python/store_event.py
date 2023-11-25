@@ -7,6 +7,9 @@ if __name__ == "__main__":
     # Obtém o contexto do GitHub
     data = json.loads(os.environ['GITHUB_CONTEXT'])
 
+    print('GITHUB_CONTEXT')
+    print(data)
+
     # Obtém o tipo de evento a partir do nome do evento
     event = os.environ['GITHUB_EVENT_NAME']
 
