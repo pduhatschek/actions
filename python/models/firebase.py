@@ -2,6 +2,7 @@ import os
 import json
 from .models import *
 import firebase_admin
+import models.firebase as firebase
 from firebase_admin import firestore
 from firebase_admin import credentials
 
@@ -41,20 +42,26 @@ def add_issue_comment(user:User, data:dict):
 
 def add_pull_request(user:User, data:dict):
     pr = PullRequest(data["pull_request"])
+    
     if pr['merged']  == False:
         user.pull_requests.append(pr)
 
         # add xp to respective xp
         for k in xp_map["pull_request"]:
             user.__dict__[k] += xp_map["pull_request"][k]
+
+        update_user(user)
+
     else:
-        user.merged_pull_requests.append(pr)
+        user_author = firebase.user_checkin(data["pull_request"]["user"]["login"])
+
+        user_author.merged_pull_requests.append(pr)
 
         # add xp to respective xp
         for k in xp_map["merged_pull_request"]:
-            user.__dict__[k] += xp_map["merged_pull_request"][k]
+            user_author.__dict__[k] += xp_map["merged_pull_request"][k]
 
-    update_user(user)
+        update_user(user_author)
 
 def add_pull_request_review(user:User, data:dict):
     user.pr_reviews.append(PR_Review(data["review"]))
