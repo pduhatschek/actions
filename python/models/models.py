@@ -94,7 +94,6 @@ def PR_ReviewComment(pr_review_comment_json):
     }
     return data
         
-    
 
 def Discussion(discussion_json):
     data = {
