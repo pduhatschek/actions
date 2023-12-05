@@ -27,6 +27,7 @@ class User:
         self.creativity_xp              = "creativity_xp" in sender_json and sender_json["creativity_xp"] or 0
 
         self.badges = "badges" in sender_json and sender_json["badges"] or []
+        self.winner = False
         
 def Issue(issue_json):
     data = {
