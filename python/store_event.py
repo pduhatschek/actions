@@ -2,6 +2,7 @@ import os
 import json
 import models.firebase as firebase
 from update_badges import update_badges
+from update_challenges import update_challenges
 
 if __name__ == "__main__":
     # Obtém o contexto do GitHub
@@ -34,3 +35,4 @@ if __name__ == "__main__":
 
     # checa se o usuário ganhou alguma badge
     update_badges(user)
+    update_challenges(user)
