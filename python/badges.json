@@ -117,6 +117,6 @@
         "description"   : "Como mestre da imaginação, você lidera a inovação no projeto, contribuindo com soluções criativas e impactantes. Sua visão é inestimável.",
         "google_icon"   : "stars",
         "condition"     : "lambda u: any([len(getattr(u, attr)) >= 8 if isinstance(getattr(u, attr), list) else False for attr in ['pull_requests', 'pushes', 'gollums', 'discussions']])",
-        "shiny"         : true
+        "shiny"         : false
     }
 ]
