@@ -12,7 +12,7 @@ class User:
         self.discussion_comments    = "discussion_comments" in sender_json and sender_json["discussion_comments"] or []
 
         self.pull_requests          = "pull_requests" in sender_json and sender_json["pull_requests"] or []
-        self.merged_pull_requests   = "merged_pull_requests" in sender_json and sender_json["merged_pull_requests"] or []
+        self.pull_requests_merged   = "pull_requests_merged" in sender_json and sender_json["pull_requests_merged"] or []
         self.pr_reviews             = "pr_reviews" in sender_json and sender_json["pr_reviews"] or []
         self.pr_review_comments     = "pr_review_comments" in sender_json and sender_json["pr_review_comments"] or []
 
@@ -52,6 +52,17 @@ def IssueComment(issue_comment_json):
         
 
 def PullRequest(pull_request_json):
+    data = {
+        "id"         : pull_request_json['id'],
+        "body"       : pull_request_json["body"],
+        "title"      : pull_request_json["title"],
+        "html_url"   : pull_request_json["html_url"],
+        "created_at" : pull_request_json["created_at"],
+        "merged"     : pull_request_json["merged"]
+    }
+    return data
+
+def PullRequestMerged(pull_request_json):
     data = {
         "id"         : pull_request_json['id'],
         "body"       : pull_request_json["body"],

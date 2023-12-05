@@ -40,13 +40,26 @@ def add_issue_comment(user:User, data:dict):
     update_user(user)
 
 def add_pull_request(user:User, data:dict):
-    user.pull_requests.append(PullRequest(data["pull_request"]))
+    if data["pull_request"]["merged"] == False:
+        user.pull_requests.append(PullRequest(data["pull_request"]))
 
-    # add xp to respective xp
-    for k in xp_map["pull_request"]:
-        user.__dict__[k] += xp_map["pull_request"][k]
+        # add xp to respective xp
+        for k in xp_map["pull_request"]:
+            user.__dict__[k] += xp_map["pull_request"][k]
 
-    update_user(user)
+        update_user(user)
+    else:
+        add_pull_request_merged(user, data)
+
+def add_pull_request_merged(user:User, data:dict):
+    if data["pull_request"]["merged"] == True:
+        user.pull_requests_merged.append(PullRequestMerged(data["pull_request"]))
+
+        # add xp to respective xp
+        for k in xp_map["pull_request_merged"]:
+            user.__dict__[k] += xp_map["pull_request_merged"][k]
+
+        update_user(user)
 
 def add_pull_request_review(user:User, data:dict):
     user.pr_reviews.append(PR_Review(data["review"]))

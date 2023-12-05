@@ -19,7 +19,7 @@ if __name__ == "__main__":
 
         'pull_request': firebase.add_pull_request,
         'pull_request_review': firebase.add_pull_request_review, 
-        'pull_request_review_comment': firebase.add_pull_request_review_comment, 
+        'pull_request_review_comment': firebase.add_pull_request_review_comment,
 
         'push': firebase.add_push,
         'fork': firebase.add_fork,
